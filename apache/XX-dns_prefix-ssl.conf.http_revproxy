@@ -7,8 +7,8 @@
 ServerAdmin support@<domain>
 ServerName <dns_prefix>.<domain>
 
-ProxyPass / http://127.0.0.1:8000/
-ProxyPassReverse / http://127.0.0.1:8000/
+ProxyPass / http://127.0.0.1:<port>/
+ProxyPassReverse / http://127.0.0.1:<port>/
 
 # Use separate log files for the SSL virtual host; note that LogLevel
 # is not inherited from httpd.conf.

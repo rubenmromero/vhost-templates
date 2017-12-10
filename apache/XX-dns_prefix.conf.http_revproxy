@@ -10,8 +10,8 @@
     #RewriteCond %{SERVER_PORT} !^443$
     #RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R,L]
 
-    ProxyPass / http://127.0.0.1:8000/
-    ProxyPassReverse / http://127.0.0.1:8000/
+    ProxyPass / http://127.0.0.1:<port>/
+    ProxyPassReverse / http://127.0.0.1:<port>/
 
     ErrorLog  <apache_logs_path>/<dns_prefix>-error.log
     CustomLog <apache_logs_path>/<dns_prefix>-access.log combined
