@@ -18,8 +18,12 @@ DocumentRoot <app_docroot_path>
 
 # Use separate log files for the SSL virtual host; note that LogLevel
 # is not inherited from httpd.conf.
-ErrorLog  <apache_logs_path>/<dns_prefix>-ssl_error.log
-CustomLog <apache_logs_path>/<dns_prefix>-ssl_access.log combined
+# For CentOS
+ErrorLog  logs/<dns_prefix>-ssl_error.log
+CustomLog logs/<dns_prefix>-ssl_access.log combined
+# For Debian
+#ErrorLog  ${APACHE_LOG_DIR}/<dns_prefix>-ssl_error.log
+#CustomLog ${APACHE_LOG_DIR}/<dns_prefix>-ssl_access.log combined
 
 #   SSL Engine Switch:
 #   Enable/Disable SSL for this virtual host.
@@ -62,10 +66,10 @@ SSLCertificateChainFile <ssl_certs_path>/<ssl_cert_pem_file>
 #   Set the CA certificate verification path where to find CA
 #   certificates for client authentication or alternatively one
 #   huge file containing all of them (file must be PEM encoded)
-# For Debian
-SSLCACertificatePath /etc/ssl/certs/
 # For CentOS
-#SSLCACertificateFile /etc/pki/tls/certs/ca-bundle.crt
+SSLCACertificateFile /etc/pki/tls/certs/ca-bundle.crt
+# For Debian
+#SSLCACertificatePath /etc/ssl/certs/
 
 #   Client Authentication (Type):
 #   Client certificate verification type and depth.  Types are

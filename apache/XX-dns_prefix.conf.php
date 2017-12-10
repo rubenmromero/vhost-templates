@@ -19,6 +19,10 @@
         Require all granted
     </Directory>
 
-    ErrorLog  <apache_logs_path>/<dns_prefix>-error.log
-    CustomLog <apache_logs_path>/<dns_prefix>-access.log combined
+    # For CentOS
+    ErrorLog  logs/<dns_prefix>-error.log
+    CustomLog logs/<dns_prefix>-access.log combined
+    # For Debian
+    #ErrorLog  ${APACHE_LOG_DIR}/<dns_prefix>-error.log
+    #CustomLog ${APACHE_LOG_DIR}/<dns_prefix>-access.log combined
 </VirtualHost>
