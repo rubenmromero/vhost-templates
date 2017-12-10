@@ -1,0 +1,18 @@
+####################################################################################################
+### Virtual Host for <dns_prefix>.<domain> subdomain
+####################################################################################################
+<VirtualHost *:80>
+    ServerAdmin support@<domain>
+    ServerName <dns_prefix>.<domain>
+
+    # Rewrite Rule for HTTP to HTTPS redirection
+    #RewriteEngine on
+    #RewriteCond %{SERVER_PORT} !^443$
+    #RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R,L]
+
+    ProxyPass / http://127.0.0.1:8000/
+    ProxyPassReverse / http://127.0.0.1:8000/
+
+    ErrorLog  <apache_logs_path>/<dns_prefix>-error.log
+    CustomLog <apache_logs_path>/<dns_prefix>-access.log combined
+</VirtualHost>
