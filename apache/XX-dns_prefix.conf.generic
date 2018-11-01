@@ -2,7 +2,7 @@
 ### Virtual Host for <dns_prefix>.<domain> subdomain
 ####################################################################################################
 <VirtualHost *:80>
-    ServerAdmin support@<domain>
+    ServerAdmin <mail_address>
     ServerName <dns_prefix>.<domain>
     DocumentRoot <app_docroot_path>
 

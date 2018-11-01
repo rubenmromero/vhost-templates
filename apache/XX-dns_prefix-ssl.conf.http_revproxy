@@ -4,7 +4,7 @@
 <VirtualHost _default_:443>
 
 # General setup for the virtual host, inherited from global configuration
-ServerAdmin support@<domain>
+ServerAdmin <mail_address>
 ServerName <dns_prefix>.<domain>
 
 ProxyPass / http://127.0.0.1:<port>/
